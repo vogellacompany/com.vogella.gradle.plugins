@@ -32,7 +32,7 @@ subprojects {
 
 1. Create a new project(a sub-directory) in the root directory
 2. Add the new project to the _settings.gradle_ file (`include '{newProjectName}'`)
-3. Open new project in terminal and run `../gradlew iT` to run the `initTemplate` task
+3. Open new project in terminal and run `../gradlew cT` to run the `createTemplate` task
 
 === How to build
 
