@@ -1,0 +1,63 @@
+= Vogella Gradle Plugins
+
+This repository is used to provide custom Gradle plugins crafted by the vogella guys
+
+== Vogella AsciiDoctor Plugin
+
+This Gradle Plugin makes use of the http://asciidoctor.org/docs/asciidoctor-gradle-plugin/ in order to create new tutorials on vogella.com
+
+=== Get the Plugin
+
+The root _build.gradle_ file can look like this:
+
+[source, groovy]
+----
+buildscript {
+	repositories { 
+		mavenLocal()
+		jcenter()
+		maven{ url 'https://dl.bintray.com/vogellacompany/Gradle-AsciiDoctor-Plugin/' }
+	}
+	dependencies {
+		classpath 'com.vogella.gradle:com.vogella.gradle.plugin.asciidoc:0.1.0'
+	}
+}
+
+subprojects {
+	apply plugin: 'com.vogella.gradle.plugin'
+}
+----
+
+=== Create a new tutorial
+
+1. Create a new project(a sub-directory) in the root directory
+2. Add the new project to the _settings.gradle_ file (`include '{newProjectName}'`)
+3. Open new project in terminal and run `../gradlew iT` to run the `initTemplate` task
+
+=== How to build
+
+In the root directory the following commands can be used to build different outputs.
+
+[source, terminal]
+----
+// create HTML 5
+./gradlew cH
+
+// create PDF
+./gradlew cP
+
+// create EPub 3
+./gradlew cE
+
+// create All (HTML 5, PDF, EPub 3)
+./gradlew cA
+----
+
+If these commands are run in the root directory all subprojects will be build.
+
+
+TIP: Single subprojects can be build when navigating into a subproject and for example run `../gradlew cH`
+
+
+NOTE: On Windows OS `./gradlew.bat` must be used +
+See http://www.vogella.com/tutorials/Gradle/article.html[Gradle tutorial]
