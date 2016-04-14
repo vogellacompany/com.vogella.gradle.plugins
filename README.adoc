@@ -61,3 +61,23 @@ TIP: Single subprojects can be build when navigating into a subproject and for e
 
 NOTE: On Windows OS `./gradlew.bat` must be used +
 See http://www.vogella.com/tutorials/Gradle/article.html[Gradle tutorial]
+
+=== How to deploy this plugin to Bintray
+
+This plugin makes use of https://github.com/bintray/gradle-bintray-plugin.
+
+[source, terminal]
+----
+// upload this plugin to bintray
+./gradlew bintrayUpload
+----
+
+For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file. As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ has to be set as system property.
+
+In order to test this plugin it can also be published to a local maven repository.
+
+[source, terminal]
+----
+// deploy the plugin to a local maven repo
+./gradlew publishToMavenLocal
+----
