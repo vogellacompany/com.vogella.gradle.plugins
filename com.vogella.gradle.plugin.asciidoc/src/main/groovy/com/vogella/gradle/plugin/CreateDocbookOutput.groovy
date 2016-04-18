@@ -12,5 +12,6 @@ class CreateDocbookOutput extends AsciiDoc {
 		group = 'Documentation'
 
 		backends = ['docbook45']
+		options doctype: 'article'
 	}
 }
