@@ -24,12 +24,13 @@ class Template extends DefaultTask {
 		def now = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
 		project.file('001_article.adoc') << """= ${project.projectDir.name} - Tutorial
 :linkcss:
-(c) 2015 vogella GmbH
+:sectnums:                                                          
+:experimental:
+:icons:
+(c) 2016 vogella GmbH
 Version 0.1, ${now}
 
 [abstract]
-== ${project.projectDir.name}
-
 This tutorial contains notes about ${project.projectDir.name}.
 				
 include::010_overview.adoc[]
@@ -44,7 +45,7 @@ include::008_resourceslocal.adoc[]
 """
 	}
 	def createOverviewFile() {
-		project.file('010_overview.adoc') << """= ${project.projectDir.name}
+		project.file('010_overview.adoc') << """== ${project.projectDir.name}
 
 """
 	}
