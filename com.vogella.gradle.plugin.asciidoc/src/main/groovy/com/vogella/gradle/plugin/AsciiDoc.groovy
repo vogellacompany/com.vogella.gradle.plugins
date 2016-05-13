@@ -10,7 +10,7 @@ class AsciiDoc extends AsciidoctorTask {
 		sources { include '001_article.adoc' }
 		outputDir "${project.buildDir}/"
 
-		options doctype: 'book'
+		options doctype: 'article'
 
 		attributes	'source-highlighter' : 'coderay',
 		'toc':'',
