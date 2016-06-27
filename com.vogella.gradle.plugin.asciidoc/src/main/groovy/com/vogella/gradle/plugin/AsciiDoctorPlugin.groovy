@@ -10,6 +10,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
         target.task('createTemplate', type: Template)
         target.task('createAll', type: CreateAllOutputFormats)
         target.task('createPdf', type: CreatePdfOutput)
+        target.task('createPdfBook', type: CreatePdfBookOutput)
         target.task('createEpub', type: CreateEpubOutput)
         target.task('createDocbook', type: CreateDocbookOutput)
         target.task('createHtml', type: CreateHtmlOutput)
