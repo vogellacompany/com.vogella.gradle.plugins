@@ -18,7 +18,9 @@ class AsciiDoc extends AsciidoctorTask {
 		'setanchors':'true',
 		'idprefix':'',
 		'idseparator':'-',
-		'docinfo1':'true'
+		'docinfo1':'true',
+		'pdf-stylesdir':'../themes',
+		'pdf-style':'basic'
 	}
 
 	@TaskAction
