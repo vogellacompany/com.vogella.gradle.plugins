@@ -21,20 +21,29 @@ class Template extends DefaultTask {
 	}
 
 	def createArticleFile() {
-		def now = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
+		def date = new Date();
+		def now = new java.text.SimpleDateFormat("dd.MM.yyyy").format(date)
+		def year = new java.text.SimpleDateFormat("yyyy").format(date)
 		project.file('001_article.adoc') << """= ${project.projectDir.name} - Tutorial
 :linkcss:
-:sectnums:                                                          
+:sectnums:
 :experimental:
 :icons:
-(c) 2016 vogella GmbH
+:imagesdir: ./img
+(c) ${year} vogella GmbH
 Version 0.1, ${now}
+:docinfodir: ../
+:vgwort: ${project.projectDir.name}
 
 [abstract]
 This tutorial contains notes about ${project.projectDir.name}.
 				
 include::010_overview.adoc[]
+include::../web/advertisement/inBetween01.adoc[]
+include::../web/advertisement/inBetween02.adoc[]
+include::../support.adoc[]
 include::008_resourceslocal.adoc[]
+include::../copyright.adoc[]	
 
 
 """
