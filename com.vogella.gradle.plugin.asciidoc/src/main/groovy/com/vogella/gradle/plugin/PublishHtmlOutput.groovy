@@ -8,7 +8,7 @@ class PublishHtmlOutput extends Copy {
 	public PublishHtmlOutput() {
 		description = 'Publishes Html 5 outputs into these rootfolder'
 		group = 'Documentation'
-		
+
 		dependsOn = ['createHtml']
 
 		from "${project.buildDir}/html5"
