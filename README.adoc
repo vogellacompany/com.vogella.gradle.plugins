@@ -34,6 +34,8 @@ subprojects {
 2. Add the new project to the _settings.gradle_ file (`include '{newProjectName}'`)
 3. Open new project in terminal and run `../gradlew cT` to run the `createTemplate` task
 
+When using the _createTemplate_ task a _userName_ property can be specified in the ~/.gradle/_gradle.properties_ file, so that the copyright header directly contains the proper name.
+
 === How to build
 
 In the root directory the following commands can be used to build different outputs.
