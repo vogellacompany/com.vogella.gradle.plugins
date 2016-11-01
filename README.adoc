@@ -72,7 +72,20 @@ This plugin makes use of https://github.com/bintray/gradle-bintray-plugin.
 ./gradlew bintrayUpload
 ----
 
-For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file. As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ has to be set as system property.
+For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file.
+
+The _gradle.properties_ file can usually be found in the user home's _.gradle_ folder and could look similar to this:
+
+[source, properties]
+----
+org.gradle.daemon=true
+userName=Simon Scholz
+
+bintrayUser=simon-scholz
+bintrayApiKey=7aab22ddfa6f78b71651ef503f2a8356bb268526
+----
+
+As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ can be set as system property.
 
 In order to test this plugin it can also be published to a local maven repository.
 
