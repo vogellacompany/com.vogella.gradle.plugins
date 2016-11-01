@@ -24,13 +24,14 @@ class Template extends DefaultTask {
 		def date = new Date();
 		def now = new java.text.SimpleDateFormat("dd.MM.yyyy").format(date)
 		def year = new java.text.SimpleDateFormat("yyyy").format(date)
+		def userName = project.hasProperty('userName') ? project.property('userName') + ' ' : ''
 		project.file('001_article.adoc') << """= ${project.projectDir.name} - Tutorial
 :linkcss:
 :sectnums:
 :experimental:
 :icons:
 :imagesdir: ./img
-(c) ${year} vogella GmbH
+${userName}(c) ${year} vogella GmbH
 Version 0.1, ${now}
 :docinfodir: ../
 :vgwort: ${project.projectDir.name}
