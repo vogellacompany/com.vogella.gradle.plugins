@@ -8,7 +8,8 @@ class AsciiDoc extends AsciidoctorTask {
 	public AsciiDoc() {
 		sourceDir = project.file("${project.projectDir}")
 		sources { include '001_article.adoc' }
-		outputDir "${project.buildDir}/"
+		outputDir project.buildDir
+		gemPath = outputDir
 
 		options doctype: 'article'
 

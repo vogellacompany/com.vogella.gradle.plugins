@@ -11,6 +11,7 @@ class CreatePdfBookOutput extends AsciiDoc {
 		description = 'Creates PDF Book Documentation'
 		group = 'Documentation'
 
+		requires = ['asciidoctor-pdf']
 		backends = ['pdf']
 
 		options doctype: 'book'
