@@ -5,25 +5,34 @@ import org.gradle.api.tasks.TaskAction
 import com.github.jrubygradle.JRubyPrepare
 
 class JRubyPrepareDev extends JRubyPrepare {
-	private def gemPath
+	static final String INTERNAL_BUILDVERSION = 1
+	static final String GEM_NAME = "asciidoctor-pdf-1.5.0.alpha.14.dev.${INTERNAL_BUILDVERSION}"
+	static final String GEM_FILENAME = "${GEM_NAME}.gem"
 
     public JRubyPrepareDev() {
-		gemPath = new GemPath(project)
+		outputDir "${project.buildDir}/jruby_prepare"
 		copyDevGem(gemPath)
-        outputDir "${project.buildDir}"
         dependencies project.configurations.gems
-        dependencies project.file(gemPath.gemPath)
+        dependencies project.file(gemPath)
     }
 	
 	def copyDevGem(gemPath) {
-		new File(gemPath.gemFoldername).mkdirs()
-		InputStream src = getClass().getResourceAsStream(GemPath.GEM_FILENAME)
-		def destFile = new File(gemPath.gemPath)
+		new File(gemFoldername).mkdirs()
+		InputStream src = getClass().getResourceAsStream(GEM_FILENAME)
+		def destFile = new File(gemPath)
 		if (!destFile.exists()) {
 			def dest = destFile.newDataOutputStream()
 			dest << src
 			src.close()
 			dest.close()
 		}
+	}
+	
+	def getGemFoldername() {
+		"${outputDir}/cache"
+	}
+	
+	def getGemPath() {
+		"${gemFoldername}/${GEM_FILENAME}"
 	}
 }

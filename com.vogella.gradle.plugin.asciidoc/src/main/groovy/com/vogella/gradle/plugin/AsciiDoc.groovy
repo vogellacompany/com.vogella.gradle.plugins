@@ -9,7 +9,7 @@ class AsciiDoc extends AsciidoctorTask {
 		sourceDir = project.file("${project.projectDir}")
 		sources { include '001_article.adoc' }
 		outputDir project.buildDir
-		gemPath = outputDir
+		gemPath = project.jrubyPrepareDev.outputDir
 
 		options doctype: 'article'
 
