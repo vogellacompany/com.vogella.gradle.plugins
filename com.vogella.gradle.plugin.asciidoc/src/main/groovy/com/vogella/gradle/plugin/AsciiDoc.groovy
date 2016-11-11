@@ -7,7 +7,10 @@ class AsciiDoc extends AsciidoctorTask {
 
 	public AsciiDoc() {
 		sourceDir = project.file("${project.projectDir}")
-		sources { include '001_article.adoc' }
+		def sourceFiles = new File('.').listFiles()
+									   .collect { it.name }
+									   .findAll { matchesFilePattern(it)}
+		sources { setIncludes sourceFiles }
 		outputDir project.buildDir
 		gemPath = project.jrubyPrepareDev.outputDir
 
@@ -28,10 +31,14 @@ class AsciiDoc extends AsciidoctorTask {
 	def renameFile() {
 		renameFile(new File("${project.buildDir}"))
 	}
+	
+	def matchesFilePattern(fileName) {
+		fileName.startsWith("001_article") || fileName.startsWith('001_book')
+	}
 
 	def renameFile(def buildDir) {
 		buildDir.eachFileRecurse( {
-			if(it.name.startsWith("001_article")){
+			if(matchesFilePattern(it.name)){
 				it.renameTo(new File(it.parent, it.name.substring(4, it.name.length())))
 			}
 		}
