@@ -74,6 +74,8 @@ This plugin makes use of https://github.com/bintray/gradle-bintray-plugin.
 ./gradlew bintrayUpload
 ----
 
+To publish this plugin you need a Bintray account that is part of the Bintray organization https://bintray.com/vogellacompany[vogellacompany].
+
 For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file.
 
 The _gradle.properties_ file can usually be found in the user home's _.gradle_ folder and could look similar to this:
