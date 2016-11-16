@@ -7,7 +7,7 @@ class AsciiDoc extends AsciidoctorTask {
 
 	public AsciiDoc() {
 		sourceDir = project.file("${project.projectDir}")
-		def sourceFiles = new File('.').listFiles()
+		def sourceFiles = new File("${sourceDir}").listFiles()
 									   .collect { it.name }
 									   .findAll { matchesFilePattern(it)}
 		sources { setIncludes sourceFiles }
