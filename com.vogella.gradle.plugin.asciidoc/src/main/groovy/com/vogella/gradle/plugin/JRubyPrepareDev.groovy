@@ -5,34 +5,38 @@ import org.gradle.api.tasks.TaskAction
 import com.github.jrubygradle.JRubyPrepare
 
 class JRubyPrepareDev extends JRubyPrepare {
-	static final String INTERNAL_BUILDVERSION = 1
-	static final String GEM_NAME = "asciidoctor-pdf-1.5.0.alpha.14.dev.${INTERNAL_BUILDVERSION}"
-	static final String GEM_FILENAME = "${GEM_NAME}.gem"
+	List<Gem> localDependencies = []
 
     public JRubyPrepareDev() {
 		outputDir "${project.buildDir}/jruby_prepare"
-		copyDevGem(gemPath)
-        dependencies project.configurations.gems
-        dependencies project.file(gemPath)
+		localDependency(new Gem(name: "asciidoctor-pdf-1.5.0.alpha.14.dev.2", jrubyPrepare: this))
+		localDependency(new Gem(name: "asciidoctor-1.5.6.dev", jrubyPrepare: this))
+		copyDevGems(localDependencies)
+		dependencies project.configurations.gems
+		localDependencies.each {
+			dependencies project.file(it.path)
+		}
     }
 	
-	def copyDevGem(gemPath) {
-		new File(gemFoldername).mkdirs()
-		InputStream src = getClass().getResourceAsStream(GEM_FILENAME)
-		def destFile = new File(gemPath)
-		if (!destFile.exists()) {
-			def dest = destFile.newDataOutputStream()
-			dest << src
-			src.close()
-			dest.close()
+	def localDependency(gem) {
+		localDependencies.add(gem)
+	}
+	
+	def copyDevGems(localDependencies) {
+		localDependencies.each {
+			new File(it.folder).mkdirs()
+			InputStream src = getClass().getResourceAsStream(it.fileName)
+			def destFile = new File(it.path)
+			if (src && !destFile.exists()) {
+				def dest = destFile.newDataOutputStream()
+				dest << src
+				src.close()
+				dest.close()
+			}
 		}
 	}
 	
-	def getGemFoldername() {
+	def String getGemFolder() {
 		"${outputDir}/cache"
-	}
-	
-	def getGemPath() {
-		"${gemFoldername}/${GEM_FILENAME}"
 	}
 }

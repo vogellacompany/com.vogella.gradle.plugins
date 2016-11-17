@@ -21,7 +21,7 @@ apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'com.github.jruby-gradle.base'
 
 group 'com.vogella.gradle'
-version = '0.10.0'
+version = '0.11.0'
 
 repositories {
 	jcenter()
@@ -45,7 +45,7 @@ publishing {
 			from components.java
 			groupId 'com.vogella.gradle'
     		artifactId 'com.vogella.gradle.plugin.asciidoc'
-    		version '0.10.0'
+    		version '0.11.0'
 		}
 	}
 }
