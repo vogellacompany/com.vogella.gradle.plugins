@@ -24,12 +24,12 @@ class AsciiDoctorPlugin implements Plugin<Project> {
         }
 		target.task('jrubyPrepareDev', type: JRubyPrepareDev)
         target.task('createTemplate', type: Template)
-        target.task('createAll', type: CreateAllOutputFormats)
+        target.task('createAll', type: CreateAllOutputFormats, dependsOn: 'jrubyPrepareDev')
         target.task('createPdf', type: CreatePdfOutput, dependsOn: 'jrubyPrepareDev')
         target.task('createPdfBook', type: CreatePdfBookOutput, dependsOn: 'jrubyPrepareDev')
-        target.task('createEpub', type: CreateEpubOutput)
-        target.task('createDocbook', type: CreateDocbookOutput)
-        target.task('createHtml', type: CreateHtmlOutput)
+        target.task('createEpub', type: CreateEpubOutput, dependsOn: 'jrubyPrepareDev')
+        target.task('createDocbook', type: CreateDocbookOutput, dependsOn: 'jrubyPrepareDev')
+        target.task('createHtml', type: CreateHtmlOutput, dependsOn: 'jrubyPrepareDev')
         target.task('publishHtml', type: PublishHtmlOutput)
     }
 }
