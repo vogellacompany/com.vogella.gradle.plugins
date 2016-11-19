@@ -3,8 +3,7 @@ package com.vogella.gradle.plugin
 import org.asciidoctor.gradle.AsciidoctorTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.TaskAction
-import org.gradle.logging.internal.OutputEvent
-import org.gradle.logging.internal.OutputEventListener
+import org.gradle.api.logging.StandardOutputListener
 
 class AsciiDoc extends AsciidoctorTask {
 
@@ -28,8 +27,19 @@ class AsciiDoc extends AsciidoctorTask {
 		'docinfo1':'true',
 		'pdf-stylesdir':'../themes',
 		'pdf-style':'basic'
+		
+		def capturedOutput = []
+		def listener = { capturedOutput << it } as StandardOutputListener
+		logging.addStandardOutputListener(listener)
+		logging.addStandardErrorListener(listener)
+		doLast {
+			logging.removeStandardOutputListener(listener)
+			logging.removeStandardErrorListener(listener)
+			checkForRelevantWarnings(capturedOutput)
+		}
 	}
 
+	@TaskAction
 	def renameFiles() {
 		renameFiles(new File("${project.buildDir}"))
 	}
@@ -45,22 +55,6 @@ class AsciiDoc extends AsciidoctorTask {
 			}
 		}
 		)
-	}
-	
-	@TaskAction
-	void processAsciidocSources() {
-		def outputEvents = []
-		def listener = addOutputEventListener(outputEvents)
-		super.processAsciidocSources()
-		renameFiles()
-		getLogging().removeOutputEventListener(listener)
-		checkForRelevantWarnings(outputEvents)
-	}
-	
-	def addOutputEventListener(outputEvents) {
-		def listener = [onOutput: {event -> outputEvents << event}] as OutputEventListener
-		getLogging().addOutputEventListener(listener)
-		listener
 	}
 	
 	def checkForRelevantWarnings(outputEvents) {
