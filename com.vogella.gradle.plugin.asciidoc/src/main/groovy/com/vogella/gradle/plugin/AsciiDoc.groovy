@@ -66,7 +66,7 @@ class AsciiDoc extends AsciidoctorTask {
 	}
 	
 	def matchesRelevantWarning(e) {
-		e =~ "include file not found" || e =~ "only book doctypes can contain level 0 sections" || e =~ "section title out of sequence"
+		e =~ "include file not found" || e =~ "only book doctypes can contain level 0 sections" || e =~ "section title out of sequence" || e =~ "dropping line containing reference to missing attribute"
 	}
 }
 
