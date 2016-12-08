@@ -7,6 +7,14 @@ import org.gradle.api.logging.StandardOutputListener
 
 class AsciiDoc extends AsciidoctorTask {
 
+    static final ERROR_MESSAGES = [
+								   "include file not found",
+		                           "only book doctypes can contain level 0 sections",
+		                           "section title out of sequence",
+		                           "dropping line containing reference to missing attribute",
+		                           "could not embed image"
+		                          ]
+
 	public AsciiDoc() {
 		sourceDir = project.file("${project.projectDir}")
 		def sourceFiles = new File("${sourceDir}").listFiles()
@@ -66,7 +74,7 @@ class AsciiDoc extends AsciidoctorTask {
 	}
 	
 	def matchesRelevantWarning(e) {
-		e =~ "include file not found" || e =~ "only book doctypes can contain level 0 sections" || e =~ "section title out of sequence" || e =~ "dropping line containing reference to missing attribute"
+		ERROR_MESSAGES.any { e =~ it }
 	}
 }
 
