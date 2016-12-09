@@ -38,14 +38,13 @@ Version 0.1, ${now}
 
 [abstract]
 This tutorial contains notes about ${project.projectDir.name}.
-				
+
 include::010_overview.adoc[]
 include::../web/advertisement/inBetween01.adoc[]
 include::../web/advertisement/inBetween02.adoc[]
 include::../support.adoc[]
 include::008_resourceslocal.adoc[]
-include::../copyright.adoc[]	
-
+include::../copyright.adoc[]
 
 """
 	}
