@@ -7,6 +7,10 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 
     void apply(Project target) {
 		target.apply([plugin:('org.asciidoctor.convert')])
+		target.apply([plugin:('com.github.jruby-gradle.base')])
+		target.dependencies {
+			gems 'rubygems:pygments.rb:1.1.2'
+		}
         target.task('createTemplate', type: Template)
         target.task('createAll', type: CreateAllOutputFormats)
         target.task('createPdf', type: CreatePdfOutput)
