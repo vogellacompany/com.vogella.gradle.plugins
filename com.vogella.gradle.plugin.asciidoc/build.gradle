@@ -21,7 +21,7 @@ apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'com.github.jruby-gradle.base'
 
 group 'com.vogella.gradle'
-version = '0.12.1'
+version = '0.12.3'
 
 repositories {
 	jcenter()
