@@ -30,6 +30,7 @@ class AsciiDoc extends AsciidoctorTask {
 		'toc':'',
 		'icons': 'font',
 		'setanchors':'true',
+		'tabsize': '4',
 		'idprefix':'',
 		'idseparator':'-',
 		'docinfo1':'true',
