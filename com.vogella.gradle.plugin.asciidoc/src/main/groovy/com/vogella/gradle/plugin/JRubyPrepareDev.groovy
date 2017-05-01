@@ -9,8 +9,8 @@ class JRubyPrepareDev extends JRubyPrepare {
 
     public JRubyPrepareDev() {
 		outputDir "${project.buildDir}/jruby_prepare"
-		localDependency(new Gem(name: "asciidoctor-pdf-1.5.0.alpha.15.dev.3", jrubyPrepare: this))
-		localDependency(new Gem(name: "asciidoctor-1.5.6.dev.1", jrubyPrepare: this))
+		localDependency(new Gem(name: "asciidoctor-pdf-1.5.0.alpha.16.dev.1", jrubyPrepare: this))
+		localDependency(new Gem(name: "asciidoctor-1.5.6.dev.2", jrubyPrepare: this))
 		copyDevGems(localDependencies)
 		dependencies project.configurations.gems
 		localDependencies.each {
@@ -27,11 +27,16 @@ class JRubyPrepareDev extends JRubyPrepare {
 			new File(it.folder).mkdirs()
 			InputStream src = getClass().getResourceAsStream(it.fileName)
 			def destFile = new File(it.path)
-			if (src && !destFile.exists()) {
+			if (destFile.exists()) {
+				return
+			}
+			if (src) {
 				def dest = destFile.newDataOutputStream()
 				dest << src
 				src.close()
 				dest.close()
+			} else {
+				throw new FileNotFoundException("Gem copy failed. Couldn't find local gem resource: ${it.fileName}")
 			}
 		}
 	}
