@@ -8,6 +8,9 @@ class PublishHtmlOutput extends Copy {
 	public PublishHtmlOutput() {
 		description = 'Publishes Html 5 outputs into these rootfolder'
 		group = 'Documentation'
+		attributes	'toclevels':'1',
+		'sectanchors':'true',
+		'sectlinks':'true'
 
 		dependsOn = ['createHtml']
 
