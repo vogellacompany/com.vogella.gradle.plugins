@@ -7,6 +7,9 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 
     void apply(Project target) {
 		target.apply([plugin:('org.asciidoctor.convert')])
+		target.asciidoctorj {
+			version = '1.5.5'
+		}
         target.task('createTemplate', type: Template)
         target.task('createAll', type: CreateAllOutputFormats)
         target.task('createPdf', type: CreatePdfOutput)
