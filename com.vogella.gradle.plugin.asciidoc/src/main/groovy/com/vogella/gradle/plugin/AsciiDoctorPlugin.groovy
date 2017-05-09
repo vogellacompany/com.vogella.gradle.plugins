@@ -20,7 +20,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		  gems 'rubygems:treetop:1.5.3'
 		}
 		target.asciidoctorj {
-            version = '1.5.4'
+            version = '1.5.5'
         }
 		target.task('jrubyPrepareDev', type: JRubyPrepareDev)
         target.task('createTemplate', type: Template)
