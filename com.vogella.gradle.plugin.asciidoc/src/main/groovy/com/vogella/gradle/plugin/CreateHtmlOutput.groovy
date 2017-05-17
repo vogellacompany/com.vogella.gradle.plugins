@@ -8,7 +8,6 @@ class CreateHtmlOutput extends AsciiDoc {
 		description = 'Creates Html 5 Documentation'
 		group = 'Documentation'
 		attributes	'toclevels':'1',
-		'sectanchors':'true',
 		'sectlinks':'true'
 		
 		
