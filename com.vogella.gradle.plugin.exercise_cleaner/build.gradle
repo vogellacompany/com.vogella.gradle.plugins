@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+	classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+}
+
+group 'com.vogella.gradle'
+version = '0.1.0'
+
+publishing {
+	publications {
+		GradlePlugins(MavenPublication) {
+			from components.java
+			groupId 'com.vogella.gradle'
+			artifactId 'com.vogella.gradle.plugin.exercise_cleaner'
+			version "${version}"
+		}
+	}
+}
+
+bintray {
+	// add these two properties to the 'gradle.properties' file in the ${HOME}/.gradle folder
+	user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+	key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+	publications = ['GradlePlugins']
+	publish = true
+	// overwrite = true
+	pkg {
+		repo = 'Gradle-Exercise_Cleaner-Plugin'
+		name = 'plugin'
+		userOrg = 'vogellacompany'
+		licenses = ['EPL-1.0']
+		vcsUrl = 'https://github.com/vogellacompany/com.vogella.gradle.plugins.git'
+		githubRepo = 'https://github.com/vogellacompany/com.vogella.gradle.plugins'
+		publicDownloadNumbers = true
+	}
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.5'
+}
+

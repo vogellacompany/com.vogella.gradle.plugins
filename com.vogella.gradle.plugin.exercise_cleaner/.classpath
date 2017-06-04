@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/groovy"/>
+	<classpathentry kind="src" path="src/test/groovy"/>
+	<classpathentry kind="con" path="GROOVY_DSL_SUPPORT" exported="true"/>
+	<classpathentry kind="src" path="resources">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry path="bin" kind="output"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="lib" path="/home/fap/.gradle/caches/3.5/generated-gradle-jars/gradle-api-3.5.jar"/>
+	<classpathentry kind="lib" path="/home/fap/.sdkman/candidates/gradle/3.5/lib/groovy-all-2.4.10.jar"/>
+	<classpathentry kind="lib" path="/home/fap/.sdkman/candidates/gradle/3.5/lib/gradle-installation-beacon-3.5.jar"/>
+</classpath>
