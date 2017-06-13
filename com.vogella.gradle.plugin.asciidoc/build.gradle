@@ -22,7 +22,7 @@ apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
 group 'com.vogella.gradle'
-version = '0.12.5'
+version = '0.12.6'
 
 repositories {
 	jcenter()
@@ -37,7 +37,7 @@ dependencies {
 }
 
 asciidoctorj {
-   version = '1.5.4'
+   version = '1.5.5'
 }
 
 publishing {
