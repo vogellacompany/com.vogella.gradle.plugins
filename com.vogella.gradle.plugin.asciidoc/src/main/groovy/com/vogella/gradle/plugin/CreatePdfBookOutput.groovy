@@ -6,12 +6,14 @@ import org.gradle.api.tasks.TaskAction;
 import groovy.lang.MetaClass
 
 class CreatePdfBookOutput extends AsciiDoc {
+	
+	public static final FOOTNOTETEXT = 'footnotetext'
 
 	public CreatePdfBookOutput() {
 		description = 'Creates PDF Book Documentation'
 		group = 'Documentation'
-		def participantName = project.hasProperty('participantName') ? project.property('participantName') : ''
-		attributes 'participantName' : participantName
+		def participantName = project.hasProperty(FOOTNOTETEXT) ? project.property(FOOTNOTETEXT) : ''
+		attributes FOOTNOTETEXT: participantName
 
 		requires = ['asciidoctor-pdf']
 		backends = ['pdf']
