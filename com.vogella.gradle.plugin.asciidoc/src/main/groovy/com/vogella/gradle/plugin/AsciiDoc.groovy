@@ -28,7 +28,6 @@ class AsciiDoc extends AsciidoctorTask {
 		options doctype: 'article'
 
 		attributes	'source-highlighter' : 'coderay',
-		'toc':'',
 		'icons': 'font',
 		'setanchors':'true',
 		'tabsize': '4',
