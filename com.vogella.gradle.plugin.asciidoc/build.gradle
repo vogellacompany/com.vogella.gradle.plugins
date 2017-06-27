@@ -22,7 +22,7 @@ apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
 group 'com.vogella.gradle'
-version = '0.12.9'
+version = '0.12.10'
 
 repositories {
 	jcenter()

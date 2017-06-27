@@ -5,6 +5,8 @@ import org.gradle.api.Plugin
 import com.github.jrubygradle.JRubyPrepare
 
 class AsciiDoctorPlugin implements Plugin<Project> {
+	
+	public static final LOG_PREFIX = 'Vogella Asciidoctor: '
 
     void apply(Project target) {
 		target.apply([plugin:('org.asciidoctor.convert')])

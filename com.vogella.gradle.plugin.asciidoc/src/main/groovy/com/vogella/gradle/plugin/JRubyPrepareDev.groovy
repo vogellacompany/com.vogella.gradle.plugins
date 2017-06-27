@@ -11,10 +11,13 @@ class JRubyPrepareDev extends JRubyPrepare {
 		outputDir "${project.buildDir}/jruby_prepare"
 		localDependency(new Gem(name: "asciidoctor-pdf-1.5.0.alpha.16.dev.2", jrubyPrepare: this))
 		localDependency(new Gem(name: "asciidoctor-1.5.6.dev.3", jrubyPrepare: this))
-		copyDevGems(localDependencies)
-		dependencies project.configurations.gems
-		localDependencies.each {
-			dependencies project.file(it.path)
+		doLast {
+			copyDevGems(localDependencies)
+			dependencies project.configurations.gems
+			localDependencies.each {
+				dependencies project.file(it.path)
+			}
+			copy()
 		}
     }
 	
@@ -24,10 +27,14 @@ class JRubyPrepareDev extends JRubyPrepare {
 	
 	def copyDevGems(localDependencies) {
 		localDependencies.each {
-			new File(it.folder).mkdirs()
+			//new File(it.folder).mkdirs()
 			InputStream src = getClass().getResourceAsStream(it.fileName)
-			def destFile = new File(it.path)
+			project.file("${it.folder}").mkdirs()
+			def destFile = project.file("${it.path}")
+			println AsciiDoctorPlugin.LOG_PREFIX + "copying ${it.fileName} to ${destFile}"
+			//destFile.mkdirs()
 			if (destFile.exists()) {
+				println AsciiDoctorPlugin.LOG_PREFIX + "${destFile} already exists"
 				return
 			}
 			if (src) {
