@@ -12,8 +12,10 @@ class CreatePdfBookOutput extends AsciiDoc {
 	public CreatePdfBookOutput() {
 		description = 'Creates PDF Book Documentation'
 		group = 'Documentation'
-		def participantName = project.hasProperty(FOOTNOTETEXT) ? project.property(FOOTNOTETEXT) : ''
-		attributes FOOTNOTETEXT: participantName
+		
+		if (project.hasProperty(FOOTNOTETEXT)) {
+			attributes FOOTNOTETEXT: project.property(FOOTNOTETEXT)
+		}
 
 		requires = ['asciidoctor-pdf']
 		backends = ['pdf']
