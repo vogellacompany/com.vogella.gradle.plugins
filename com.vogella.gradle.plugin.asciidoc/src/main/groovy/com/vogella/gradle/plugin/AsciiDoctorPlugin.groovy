@@ -14,7 +14,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		target.dependencies {
 		  gems 'rubygems:prawn:2.2.0'
 		  gems 'rubygems:prawn-table:0.2.2'
-		  gems 'rubygems:prawn-templates:0.0.4'
+		  gems 'rubygems:prawn-templates:0.1.1'
 		  gems 'rubygems:prawn-svg:0.27.0'
 		  gems 'rubygems:prawn-icon:1.3.0'
 		  gems 'rubygems:safe_yaml:1.0.4'
