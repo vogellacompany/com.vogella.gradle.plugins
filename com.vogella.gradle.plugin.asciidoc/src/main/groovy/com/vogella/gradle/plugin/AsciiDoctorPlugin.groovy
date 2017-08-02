@@ -23,7 +23,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		  gems 'rubygems:asciidoctor:1.5.6.1'
 		}
 		target.asciidoctorj {
-            version = '1.5.5'
+            version = '1.5.6'
         }
 		target.task('jrubyPrepareDev', type: JRubyPrepareDev)
         target.task('createTemplate', type: Template)
