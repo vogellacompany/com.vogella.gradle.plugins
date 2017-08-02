@@ -10,7 +10,6 @@ class JRubyPrepareDev extends JRubyPrepare {
     public JRubyPrepareDev() {
 		outputDir "${project.buildDir}/jruby_prepare"
 		localDependency(new Gem(name: "asciidoctor-pdf-1.5.0.alpha.16.dev.2", jrubyPrepare: this))
-		localDependency(new Gem(name: "asciidoctor-1.5.6.dev.3", jrubyPrepare: this))
 		doLast {
 			copyDevGems(localDependencies)
 			dependencies project.configurations.gems
