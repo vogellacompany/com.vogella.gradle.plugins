@@ -8,12 +8,13 @@ import org.gradle.api.logging.StandardOutputListener
 class AsciiDoc extends AsciidoctorTask {
 
     static final ERROR_MESSAGES = [
-								   "include file not found",
-		                           "only book doctypes can contain level 0 sections",
-		                           "section title out of sequence",
-		                           "dropping line containing reference to missing attribute",
-		                           "could not embed image",
-								   "could not resolve xref"
+								   'include file not found',
+		                           'only book doctypes can contain level 0 sections',
+		                           'section title out of sequence',
+		                           'dropping line containing reference to missing attribute',
+		                           'could not embed image',
+								   'could not resolve xref',
+								   'already in use'
 		                          ]
 
 	public AsciiDoc() {
