@@ -13,6 +13,7 @@ class AsciiDoc extends AsciidoctorTask {
 		                           'section title out of sequence',
 		                           'dropping line containing reference to missing attribute',
 		                           'could not embed image',
+								   'image to embed not found or not readable',
 								   'could not resolve xref',
 								   'already in use'
 		                          ]
