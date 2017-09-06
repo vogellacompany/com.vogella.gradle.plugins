@@ -4,13 +4,13 @@ buildscript {
     }
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath 'com.github.jruby-gradle:jruby-gradle-plugin:1.4.0'
+        classpath 'com.github.jruby-gradle:jruby-gradle-plugin:1.5.0'
     }
 }
 
 plugins {
     id 'org.asciidoctor.convert' version '1.5.3'
-    id 'com.github.jruby-gradle.base' version '1.4.0'
+    id 'com.github.jruby-gradle.base' version '1.5.0'
 }
 
 apply plugin: 'groovy'
@@ -33,7 +33,7 @@ dependencies {
 	compile gradleApi()
 	compile localGroovy()
 	compile 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
-	compile 'com.github.jruby-gradle:jruby-gradle-plugin:1.4.0'
+	compile 'com.github.jruby-gradle:jruby-gradle-plugin:1.5.0'
 }
 
 asciidoctorj {
