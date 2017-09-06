@@ -20,6 +20,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		  gems 'rubygems:safe_yaml:1.0.4'
 		  gems 'rubygems:thread_safe:0.3.6'
 		  gems 'rubygems:treetop:1.5.3'
+		  gems 'rubygems:public_suffix:2.0.5'
 		  gems 'rubygems:asciidoctor:1.5.6.1'
 		}
 		target.asciidoctorj {
