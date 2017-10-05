@@ -1,0 +1,73 @@
+== Exercise Cleaner
+The Plugin let's you delete exercise solutions from tests.
+
+=== Get the Plugin
+
+The root _build.gradle_ file can look like this:
+
+[source, groovy]
+----
+buildscript {
+	repositories {
+		mavenLocal()
+		jcenter()
+		maven{ url 'https://dl.bintray.com/vogellacompany/Gradle-AsciiDoctor-Plugin/' }
+	}
+	dependencies {
+		classpath 'com.vogella.gradle:com.vogella.gradle.plugin.exercise_cleaner:0.1.0'
+	}
+}
+
+subprojects {
+	apply plugin: 'com.vogella.gradle.plugin'
+}
+----
+
+=== Using the plugin
+By default the plugin expects the solution area to be marked like this:
+
+[source, java]
+----
+@Test
+public void testSomeLibraryMethod() {
+    Library classUnderTest = new Library();
+
+    // ------------ START EDITING HERE ----------------------
+    classUnderTest.setState(true);
+    // ------------ STOP EDITING HERE  ----------------------
+    assertTrue("getState should return 'true'", classUnderTest.getState());
+}
+----
+
+To delete the solution run the gradle task:
+[source, terminal]
+----
+./gradlew clean_exercises
+:clean_exercises
+Removed 1 solutions from the exercises. Good luck!
+----
+
+After that the test should look like this:
+
+[source, java]
+----
+@Test
+public void testSomeLibraryMethod() {
+    Library classUnderTest = new Library();
+
+    // ------------ START EDITING HERE ----------------------
+
+    // ------------ STOP EDITING HERE  ----------------------
+    assertTrue("getState should return 'true'", classUnderTest.getState());
+}
+----
+
+=== Changing the RegEx for matching
+If you want to change the RegEx that is used for matching you can do this in your `gradle.build` file.
+
+[source, groovy]
+----
+clean_exercises {
+	solutionRegex($/(?sm)(// -{12} START HERE -{22})(.*?)(\s+// -{12} STOP HERE  -{22})/$)
+}
+----
