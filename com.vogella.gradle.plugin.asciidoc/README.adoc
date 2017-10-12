@@ -70,6 +70,9 @@ This plugin makes use of https://github.com/bintray/gradle-bintray-plugin.
 ./gradlew bintrayUpload
 ----
 
+Execute this command in: 
+jnerlich@sol:~/git/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc$ 
+
 To publish this plugin you need a Bintray account that is part of the Bintray organization https://bintray.com/vogellacompany[vogellacompany].
 
 For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file.
@@ -97,4 +100,23 @@ In order to test this plugin it can also be published to a local maven repositor
 
 === How to locally test changes in the plug-in
 
-TODO JENNIFER TO ADD DESCRIPTION
+1. Do the changes e.g. in /com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/src/main/groovy/com/vogella/gradle/plugin/AsciiDoc.groovy
+
+2. Increase version nr in
+/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/build.gradle
+
+3. Execute in
+/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/ 
+./gradlew clean install
+
+4. Set up the Version Nr in the tutorials build.gradle
+
+5. To test local add mavenLocal() in the tutorials build.gradle
+ 
+buildscript {
+	repositories { 
+		mavenLocal()
+6. e.g. ./gradlew cPB
+
+
+
