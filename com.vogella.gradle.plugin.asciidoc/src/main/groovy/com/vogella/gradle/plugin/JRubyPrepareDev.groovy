@@ -9,7 +9,7 @@ class JRubyPrepareDev extends JRubyPrepare {
 
     public JRubyPrepareDev() {
 		def projectDir = project.parent ? project.parent.projectDir : project.projectDir
-		outputDir "${projectDir}/build/jruby_prepare"
+		outputDir "${projectDir}${File.separator}build${File.separator}jruby_prepare"
 		localDependency(new Gem(name: 'asciidoctor-pdf-1.5.0.alpha.17.dev.1', jrubyPrepare: this))
 		doLast {
 			copyDevGems(localDependencies)
@@ -49,6 +49,6 @@ class JRubyPrepareDev extends JRubyPrepare {
 	}
 	
 	def String getGemFolder() {
-		"${outputDir}/cache"
+		"${outputDir}${File.separator}cache"
 	}
 }

@@ -10,7 +10,7 @@ class Gem {
 	}
 	
 	def getPath() {
-		"${folder}/${fileName}"
+		"${folder}${File.separator}${fileName}"
 	}
 	
 	def getFileName() {
