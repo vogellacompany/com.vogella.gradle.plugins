@@ -61,7 +61,7 @@ class AsciiDoc extends AsciidoctorTask {
 
 	def renameFiles(def buildDir) {
 		buildDir.eachFileRecurse( {
-			if(matchesFilePattern(it.name)){
+			if(it.name.startsWith('001_')){
 				it.renameTo(new File(it.parent, it.name.substring(4, it.name.length())))
 			}
 		}
