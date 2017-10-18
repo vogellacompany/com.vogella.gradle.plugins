@@ -22,5 +22,10 @@ class CreatePdfBookOutput extends AsciiDoc {
 
 		options doctype: 'book'
 	}
+
+
+	def matchesFilePattern(fileName) {
+		fileName.startsWith('001_book')|| fileName.startsWith('001_script')
+	}
 }
 

@@ -7,8 +7,7 @@ class CreateHtmlOutput extends AsciiDoc {
 	public CreateHtmlOutput() {
 		description = 'Creates Html 5 Documentation'
 		group = 'Documentation'
-		attributes	'toclevels':'1',
-		'sectlinks':'true',
+		attributes	'sectlinks':'true',
                 'toc-title':''
 		
 		
@@ -18,4 +17,8 @@ class CreateHtmlOutput extends AsciiDoc {
 			from(sourceDir) { include 'img/**' }
 		}
 	}
+
+   def matchesFilePattern(fileName) {
+		fileName.startsWith("001_article") || fileName.contains('exercise_') 
+   }
 }
