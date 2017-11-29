@@ -19,6 +19,6 @@ class CreateHtmlOutput extends AsciiDoc {
 	}
 
    def matchesFilePattern(fileName) {
-		fileName.startsWith("001_article") || fileName.contains('exercise_') 
+		fileName.startsWith("001_article") || fileName.contains('exercise_') || fileName.contains('content_') 
    }
 }
