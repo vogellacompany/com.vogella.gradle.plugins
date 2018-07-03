@@ -27,7 +27,9 @@ class AsciiDoc extends AsciidoctorTask {
 		outputDir project.buildDir
 		gemPath = project.jrubyPrepareDev.outputDir
 
-		options doctype: 'article'
+		def topProjectDir = project.parent ? project.parent.projectDir : project.projectDir
+		options doctype: 'article',
+		template_dirs : [ new File(topProjectDir, '_templates').absolutePath ]
 
 		attributes	'source-highlighter' : 'coderay',
 		'icons': 'font',

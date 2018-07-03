@@ -22,6 +22,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		  gems 'rubygems:treetop:1.5.3'
 		  gems 'rubygems:public_suffix:2.0.5'
 		  gems 'rubygems:asciidoctor:1.5.6.1'
+		  gems 'rubygems:slim:2.1.0'
 		}
 		target.asciidoctorj {
             version = '1.5.6'
