@@ -25,11 +25,9 @@ class AsciiDoc extends AsciidoctorTask {
 									   .findAll { matchesFilePattern(it)}
 		sources { setIncludes sourceFiles }
 		outputDir project.buildDir
-		gemPath = project.jrubyPrepareDev.outputDir
 
-		def topProjectDir = project.parent ? project.parent.projectDir : project.projectDir
 		options doctype: 'article',
-		template_dirs : [ new File(topProjectDir, '_templates').absolutePath ]
+		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]
 
 		attributes	'source-highlighter' : 'coderay',
 		'icons': 'font',

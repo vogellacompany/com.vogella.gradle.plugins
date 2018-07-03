@@ -9,7 +9,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.asciidoctor.convert' version '1.5.6'
+    id 'org.asciidoctor.convert' version '1.5.7'
     id 'com.github.jruby-gradle.base' version '1.5.0'
 }
 
@@ -33,11 +33,12 @@ dependencies {
 	compile gradleApi()
 	compile localGroovy()
 	compile 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.6'
-	compile 'com.github.jruby-gradle:jruby-gradle-plugin:1.5.0'
+	compile 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
+	compile 'org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.8.1'
 }
 
 asciidoctorj {
-   version = '1.5.6'
+   version = '1.5.7'
 }
 
 publishing {
