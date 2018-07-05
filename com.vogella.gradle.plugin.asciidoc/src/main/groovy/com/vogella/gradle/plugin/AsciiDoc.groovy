@@ -30,6 +30,7 @@ class AsciiDoc extends AsciidoctorTask {
 		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]
 
 		attributes	'source-highlighter' : 'coderay',
+		'sectnums': 'true',
 		'icons': 'font',
 		'setanchors':'true',
 		'tabsize': '4',

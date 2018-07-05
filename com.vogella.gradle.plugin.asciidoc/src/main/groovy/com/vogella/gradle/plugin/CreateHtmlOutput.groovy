@@ -7,8 +7,9 @@ class CreateHtmlOutput extends AsciiDoc {
 	public CreateHtmlOutput() {
 		description = 'Creates Html 5 Documentation'
 		group = 'Documentation'
-		attributes	'sectlinks':'true',
-                'toc-title':''
+		attributes	'sectlinks': 'true',
+                'toc': '',
+				'toc-level': '1'
 		
 		
 		backends = ['html5']
