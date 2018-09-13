@@ -3,6 +3,7 @@ package com.vogella.gradle.plugin
 import java.util.Map
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
+import java.util.stream.Collectors
 
 class CopyExtensions extends DefaultTask {
 	
@@ -10,17 +11,26 @@ class CopyExtensions extends DefaultTask {
 
 	static final String PART_PAGES_EXTENSION_FILE = 'styling_for_part_pages_extension.rb'
 	static final List EXTENSIONS = [PART_PAGES_EXTENSION_FILE]
-
-	def static outputFolder(buildDir) {
-		"${buildDir}/${EXTENSIONS_OUTPUT_FOLDER}"
+	
+	public CopyExtensions() {		
+		doLast {
+			copyExtensions(outputFolder())
+		}
 	}
 	
-	@TaskAction
-	def copyExtensions() {
-		def outputFolder = outputFolder(TaskUtil.topProject(project).buildDir)
+	def extensions() {
+		EXTENSIONS.stream().map({ "${outputFolder()}${File.separator}${it}" }).collect(Collectors.toList())
+	}
+	
+	def outputFolder() {
+		def projectDir = TaskUtil.topProject(project).projectDir
+		"${projectDir}${File.separator}build${File.separator}${EXTENSIONS_OUTPUT_FOLDER}"
+	}
+	
+	def copyExtensions(outputFolder) {
+		project.file(outputFolder).mkdirs()
 		EXTENSIONS.each {
 			InputStream src = getClass().getResourceAsStream(it)
-			project.file(outputFolder).mkdirs()
 			def destFile = project.file("${outputFolder}/${it}")
 			if (src) {
 				println AsciiDoctorPlugin.LOG_PREFIX + "copying ${it} to ${destFile}"

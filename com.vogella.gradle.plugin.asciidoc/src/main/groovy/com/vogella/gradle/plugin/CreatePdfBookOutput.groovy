@@ -20,9 +20,7 @@ class CreatePdfBookOutput extends AsciiDoc {
 			attributes FOOTNOTETEXT: project.property(FOOTNOTETEXT)
 		}
 
-		def outputFolder = CopyExtensions.outputFolder(TaskUtil.topProject(project).buildDir)
-		
-		requires = ['asciidoctor-pdf', project.file("${outputFolder}/${CopyExtensions.PART_PAGES_EXTENSION_FILE}")]
+		requires = ['asciidoctor-pdf'] + new CopyExtensions().extensions()
 		backends = ['pdf']
 
 		options doctype: 'book'
