@@ -7,19 +7,24 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 	
 	public static final LOG_PREFIX = 'Vogella Asciidoctor: '
 
-    void apply(Project target) {
+	void apply(Project target) {
 		target.apply([plugin:('org.asciidoctor.convert')])
 		target.asciidoctorj {
-            version = '1.5.7'
-        }
+			version = '1.5.7'
+		}
 		target.task('copyExtensions', type: CopyExtensions)
-        target.task('createTemplate', type: Template)
-        target.task('createAll', type: CreateAllOutputFormats)
-        target.task('createPdf', type: CreatePdfOutput)
-        target.task('createPdfBook', type: CreatePdfBookOutput, dependsOn: 'copyExtensions')
-        target.task('createEpub', type: CreateEpubOutput)
-        target.task('createDocbook', type: CreateDocbookOutput)
-        target.task('createHtml', type: CreateHtmlOutput)
-        target.task('publishHtml', type: PublishHtmlOutput)
-    }
+		target.task('createTemplate', type: Template)
+
+		// only apply asciidoctor tasks to child projects
+		target.childProjects.each { k, v ->
+			v.task('createAll', type: CreateAllOutputFormats)
+			v.task('createPdf', type: CreatePdfOutput)
+			v.task('createPdfBook', type: CreatePdfBookOutput, dependsOn: 'copyExtensions')
+			v.task('createEpub', type: CreateEpubOutput)
+			v.task('createDocbook', type: CreateDocbookOutput)
+			v.task('createHtml', type: CreateHtmlOutput)
+			v.task('publishHtml', type: PublishHtmlOutput)
+		}
+				
+	}
 }
