@@ -9,8 +9,11 @@ buildscript {
 }
 
 plugins {
+	id 'java-gradle-plugin'
     id 'org.asciidoctor.convert' version '1.5.7'
     id 'com.github.jruby-gradle.base' version '1.5.0'
+    id 'com.github.ben-manes.versions' version '0.20.0'
+	id 'com.gradle.plugin-publish' version '0.10.1'
 }
 
 apply plugin: 'groovy'
@@ -22,15 +25,14 @@ apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
 group 'com.vogella.gradle'
-version = '0.15.2'
+version = '0.16.0'
 
 repositories {
 	jcenter()
-        mavenLocal()
+    mavenLocal()
 }
 
 dependencies {
-	compile gradleApi()
 	compile localGroovy()
 	compile 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.6'
 	compile 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
@@ -39,6 +41,23 @@ dependencies {
 
 asciidoctorj {
    version = '1.5.7'
+}
+
+pluginBundle {
+	website='https://github.com/vogellacompany/com.vogella.gradle.plugins'
+	vcsUrl = 'https://github.com/vogellacompany/com.vogella.gradle.plugins'
+	tags = ['documentation', 'asciidoc', 'asciidoctor']
+}
+
+gradlePlugin {
+	plugins {
+		vogellaPlugin {
+			id = 'com.vogella.asciidoc'
+			displayName = 'AsciiDoctor plugin for vogella.com'
+			description = 'Plugin to generate the tutorials on www.vogella.com'
+			implementationClass = 'com.vogella.gradle.plugin.AsciiDoctorPlugin'
+		}
+	}
 }
 
 publishing {

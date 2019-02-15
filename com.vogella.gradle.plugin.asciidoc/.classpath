@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry path="src/main/groovy" kind="src">
+	<classpathentry kind="src" output="bin/main" path="src/main/groovy">
 		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry path="src/main/resources" kind="src">
+	<classpathentry kind="src" output="bin/main" path="src/main/resources">
 		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry path="org.eclipse.buildship.core.gradleclasspathcontainer" kind="con"/>
-	<classpathentry path="bin" kind="output"/>
-	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/" kind="con"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.asciidoctor/asciidoctor-gradle-plugin/1.5.3/ed827afd210a6bce6d597a89400e61c56c8de57f/asciidoctor-gradle-plugin-1.5.3.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.asciidoctor/asciidoctor-gradle-plugin/1.5.3/d3b82106e0317be532eecc04b93906adad6b6d1a/asciidoctor-gradle-plugin-1.5.3-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/com.github.jruby-gradle/jruby-gradle-plugin/1.3.3/61b7a7d2c3356e025ea4f1f7eb335de2925bd977/jruby-gradle-plugin-1.3.3.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/com.github.jruby-gradle/jruby-gradle-plugin/1.3.3/e415a4b56f4c69544a948725180f6782e6c34e33/jruby-gradle-plugin-1.3.3-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.reflections/reflections/0.9.11/23bba0ff497ec61fbca967d9b641c7681a71edb3/reflections-0.9.11.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.reflections/reflections/0.9.11/be2a63b3d10dc8c4e63cc3ba06a393ae6dcee67/reflections-0.9.11-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/de.saumya.mojo/rubygems/0.2.3/b568a0701dcba082462903d155fab2c3736c8e42/rubygems-0.2.3.war" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/de.saumya.mojo/rubygems/0.2.3/892861f7788189d282cd93629de01ed1fd27c014/rubygems-0.2.3-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.2.12.v20150709/8c90ceffb6954385b024899d334192947d0e4077/jetty-server-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.2.12.v20150709/593c7b0fd62f253a40e24cf979dab1851269d1b4/jetty-server-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.2.12.v20150709/598c13ffa689371a93ee90117933656df29330fb/jetty-webapp-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.2.12.v20150709/6a579c61f62590be81d4adafbd49304cfc9d4d91/jetty-webapp-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/20.0/89507701249388e1ed5ddcf8c41f4ce1be7831ef/guava-20.0.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/20.0/9c8493c7991464839b612d7547d6c263adf08f75/guava-20.0-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.21.0-GA/598244f595db5c5fb713731eddbb1c91a58d959b/javassist-3.21.0-GA.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.21.0-GA/81fefbd46ba6a18fc7af83b9c60b28c0862cd492/javassist-3.21.0-GA-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.2.12.v20150709/9a6c83f52c70c28e2272d83866b4111cd15ddbc5/jetty-http-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.2.12.v20150709/4691ff0fbad230771b179252b6fbd0394ca5a3f/jetty-http-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.2.12.v20150709/c02e9e303d231a589e0c8866c1ee89bcdeb40a55/jetty-io-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.2.12.v20150709/403de68989c5266538d381c0f67ec8013e6d1950/jetty-io-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-xml/9.2.12.v20150709/25cd8537b457767994627e1c0b838c3bdd8e394f/jetty-xml-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-xml/9.2.12.v20150709/d6991d5a91388cda49a1e84e1fdfced734a16cb2/jetty-xml-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.2.12.v20150709/50116cac18ad893c9628f0a1984390464b133921/jetty-servlet-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.2.12.v20150709/678e35231ee15c0ed440c898df8505ee2445e8cd/jetty-servlet-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.2.12.v20150709/d99d38adfdb5ec677643f04fa862554b0bb8b42e/jetty-util-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.2.12.v20150709/dde0140cfe53d9ef8f950fdeeff7a10184e29a7c/jetty-util-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.2.12.v20150709/9ace95998fbaae8425b2621c90230a229a554784/jetty-security-9.2.12.v20150709.jar" kind="lib" sourcepath="/home/fap/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.2.12.v20150709/c2598a4e0677d3c1ccaf4756224fa3c4d0abb0b2/jetty-security-9.2.12.v20150709-sources.jar"/>
-	<classpathentry path="/home/fap/.gradle/caches/2.14/generated-gradle-jars/gradle-api-2.14.jar" kind="lib"/>
-	<classpathentry path="/home/fap/.sdkman/candidates/gradle/2.14/lib/groovy-all-2.4.4.jar" kind="lib"/>
-	<classpathentry path="/home/fap/.sdkman/candidates/gradle/2.14/lib/gradle-installation-beacon-2.14.jar" kind="lib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
+	<classpathentry kind="output" path="bin/default"/>
 </classpath>
