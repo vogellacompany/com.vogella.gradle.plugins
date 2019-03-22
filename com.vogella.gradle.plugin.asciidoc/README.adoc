@@ -8,19 +8,12 @@ The root _build.gradle_ file can look like this:
 
 [source, groovy]
 ----
-buildscript {
-	repositories {
-		mavenLocal()
-		jcenter()
-		maven{ url 'https://dl.bintray.com/vogellacompany/Gradle-AsciiDoctor-Plugin/' }
-	}
-	dependencies {
-		classpath 'com.vogella.gradle:com.vogella.gradle.plugin.asciidoc:0.1.0'
-	}
+plugins {
+    id "com.vogella.asciidoc" version "0.16.0"
 }
 
-subprojects {
-	apply plugin: 'com.vogella.gradle.plugin'
+allprojects {
+    apply plugin: 'com.vogella.asciidoc'
 }
 ----
 
@@ -88,33 +81,40 @@ bintrayApiKey=7aab22ddfa6f78b71651ef503f2a8356bb268526
 
 As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ can be set as system property.
 
-In order to test this plugin it can also be published to a local maven repository.
-
-[source, terminal]
-----
-// deploy the plugin to a local maven repo
-./gradlew publishToMavenLocal
-----
-
 === How to locally test changes in the plug-in
 
-1. Do the changes e.g. in /com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/src/main/groovy/com/vogella/gradle/plugin/AsciiDoc.groovy
+1. Do the changes e.g. in `/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/src/main/groovy/com/vogella/gradle/plugin/AsciiDoc.groovy`
 
-2. Increase version nr in
-/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/build.gradle
+2. Change version number in
+`/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/build.gradle`, eg., to `0.16.0.dev`
 
 3. Execute in
-/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/ 
-./gradlew clean install
+`/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/ `
+`./gradlew clean install`
 
-4. Set up the Version Nr in the tutorials build.gradle
-
-5. To test local add mavenLocal() in the tutorials build.gradle
- 
-buildscript {
-	repositories { 
+4. Choose the new version number in the tutorials `build.gradle` file
++
+[source, groovy]
+----
+plugins {
+  id "com.vogella.asciidoc" version "0.16.0.dev"
+}
+----
++
+5. To test local add mavenLocal() as repository in the tutorials settings.gradle.
+   The pluginManagement block has to be placed at the top of the file.
++
+[source, groovy]   
+----
+pluginManagement {
+	repositories {
 		mavenLocal()
-6. e.g. ./gradlew cPB
+		gradlePluginPortal()
+	}
+}
+----
++
+6. e.g. `./gradlew cPB`
 
 
 
