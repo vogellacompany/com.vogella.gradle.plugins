@@ -90,7 +90,7 @@ As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ can be set as system 
 
 3. Execute in
 `/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc/ `
-`./gradlew clean install`
+`./gradlew clean publishToMavenLocal`
 
 4. Choose the new version number in the tutorials `build.gradle` file
 +
