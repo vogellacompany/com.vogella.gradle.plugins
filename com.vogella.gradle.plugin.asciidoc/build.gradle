@@ -3,7 +3,9 @@ plugins {
 	id "com.jfrog.bintray" version "1.8.4"
 	id "com.github.jruby-gradle.base" version "1.6.0"
 	id "com.github.jruby-gradle.jar" version "1.6.0"
-    id 'org.asciidoctor.convert' version '1.6.0'
+	id 'org.asciidoctor.jvm.convert' version '2.0.0'
+	id 'org.asciidoctor.jvm.pdf' version '2.0.0'
+	id 'org.asciidoctor.jvm.epub' version '2.0.0'
     id 'com.github.ben-manes.versions' version '0.20.0'
 	id 'com.gradle.plugin-publish' version '0.10.1'
 }
@@ -12,27 +14,27 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
 group 'com.vogella.gradle'
-version = '0.16.1'
+version = '0.16.2.dev'
 
 repositories {
+	gradlePluginPortal()
 	jcenter()
     mavenLocal()
 }
 
 dependencies {
 	compile localGroovy()
-	compile 'org.asciidoctor:asciidoctor-gradle-plugin:1.6.0'
-	compile 'org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.8.1'
-	compile 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
+	compile 'org.asciidoctor:asciidoctor-gradle-base:2.0.0'
+	compile 'org.asciidoctor:asciidoctor-gradle-jvm-epub:2.0.0'
+	compile 'org.asciidoctor:asciidoctor-gradle-jvm:2.0.0'
 }
 
 asciidoctorj {
-   version = '1.6.1'
+   version = '1.6.2'
 }
 
 pluginBundle {

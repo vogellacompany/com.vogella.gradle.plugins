@@ -1,17 +1,22 @@
 package com.vogella.gradle.plugin
 
-import org.asciidoctor.gradle.AsciidoctorTask
+import javax.inject.Inject
+
 import org.gradle.api.tasks.TaskAction;
+import org.gradle.workers.WorkerExecutor
 
 import groovy.lang.MetaClass
 
 class CreatePdfOutput extends AsciiDoc {
 
-	public CreatePdfOutput() {
+	@Inject
+	public CreatePdfOutput(WorkerExecutor we) {
+		super(we)
 		description = 'Creates PDF Documentation'
 		group = 'Documentation'
 
-		requires = ['asciidoctor-pdf']
-	    backends = ['pdf']
+		outputOptions {
+			backends = ['pdf']
+		}
 	}
 }

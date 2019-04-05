@@ -1,17 +1,23 @@
 package com.vogella.gradle.plugin
 
-import org.asciidoctor.gradle.AsciidoctorTask
+import javax.inject.Inject
+
 import org.gradle.api.tasks.TaskAction;
+import org.gradle.workers.WorkerExecutor
 
 import groovy.lang.MetaClass
 
 class CreateDocbookOutput extends AsciiDoc {
 
-	public CreateDocbookOutput() {
+	@Inject
+	public CreateDocbookOutput(WorkerExecutor we) {
+		super(we)
 		description = 'Creates Docbook Documentation'
 		group = 'Documentation'
 
-		backends = ['docbook45']
+		outputOptions {
+			backends = ['docbook45']
+		}
 		options doctype: 'article'
 	}
 }

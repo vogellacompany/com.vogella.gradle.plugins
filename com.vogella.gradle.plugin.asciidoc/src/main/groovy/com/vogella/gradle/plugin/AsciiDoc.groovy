@@ -1,8 +1,10 @@
 package com.vogella.gradle.plugin
 
-import org.asciidoctor.gradle.AsciidoctorTask
+import org.asciidoctor.gradle.base.SafeMode
+import org.asciidoctor.gradle.jvm.AsciidoctorTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.TaskAction
+import org.gradle.workers.WorkerExecutor
 import org.gradle.api.logging.StandardOutputListener
 
 class AsciiDoc extends AsciidoctorTask {
@@ -18,13 +20,28 @@ class AsciiDoc extends AsciidoctorTask {
 								   'already in use'
 		                          ]
 
-	public AsciiDoc() {
+	public AsciiDoc(WorkerExecutor we) {
+		super(we)
+
+		inProcess JAVA_EXEC
+		forkOptions {
+			setMaxHeapSize '4096m'
+		}
+
+		// allow asciidoc includes from outside the parent folder
+		asciidoctorj {
+			safeMode SafeMode.UNSAFE
+		}
+
 		sourceDir = project.file("${project.projectDir}")
 		def sourceFiles = new File("${sourceDir}").listFiles()
 									   .collect { it.name }
 									   .findAll { matchesFilePattern(it)}
 		sources { setIncludes sourceFiles }
 		outputDir project.buildDir
+		outputOptions {
+			setSeparateOutputDirs(true)
+		}
 
 		options doctype: 'article',
 		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]

@@ -1,17 +1,25 @@
 package com.vogella.gradle.plugin
 
+import javax.inject.Inject
+
+import org.gradle.workers.WorkerExecutor
+
 import groovy.lang.MetaClass
 
 class CreateHtmlOutput extends AsciiDoc {
 
-	public CreateHtmlOutput() {
+	@Inject
+	public CreateHtmlOutput(WorkerExecutor we) {
+		super(we)
 		description = 'Creates Html 5 Documentation'
 		group = 'Documentation'
 		attributes	'sectlinks':'true',
                 'toc-title':''
 		
 		
-		backends = ['html5']
+		outputOptions {
+			backends = ['html5']
+		}
 
 		resources {
 			from(sourceDir) { include 'img/**' }
