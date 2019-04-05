@@ -16,6 +16,10 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 			apply plugin : 'org.asciidoctor.jvm.epub'
 			extensions.getByType(AsciidoctorJExtension).epubVersion = AsciidoctorJExtension.DEFAULT_EPUB_VERSION
 			extensions.getByType(AsciidoctorJExtension).pdfVersion = AsciidoctorJExtension.DEFAULT_PDF_VERSION
+			
+			repositories {
+				jcenter()
+			}
 
 			asciidoctorj {
 				version = '1.6.2'
