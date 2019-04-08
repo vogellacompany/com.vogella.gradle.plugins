@@ -3,12 +3,14 @@ package com.vogella.gradle.plugin
 import org.asciidoctor.gradle.base.SafeMode
 import org.asciidoctor.gradle.jvm.AsciidoctorTask
 import org.gradle.api.GradleException
+import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.TaskAction
 import org.gradle.workers.WorkerExecutor
 import org.gradle.api.logging.StandardOutputListener
 
+@CacheableTask
 class AsciiDoc extends AsciidoctorTask {
-
+	
     static final ERROR_MESSAGES = [
 								   'include file not found',
 		                           'only book doctypes can contain level 0 sections',
