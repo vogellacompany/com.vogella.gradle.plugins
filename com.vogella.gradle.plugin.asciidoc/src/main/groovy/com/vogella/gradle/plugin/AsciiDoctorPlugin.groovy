@@ -19,10 +19,11 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 			
 			repositories {
 				jcenter()
+				mavenCentral()
 			}
 
 			asciidoctorj {
-				version = '1.6.2'
+				version = '2.0.0'
 			}
 
 			task('copyExtensions', type: CopyExtensions)
