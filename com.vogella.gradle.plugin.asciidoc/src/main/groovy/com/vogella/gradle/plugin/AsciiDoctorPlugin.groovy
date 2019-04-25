@@ -16,7 +16,9 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 		'could not embed image',
 		'image to embed not found or not readable',
 		'could not resolve xref',
-		'already in use'
+		'already in use',
+		'unterminated listing block',
+		'invalid style for listing block'
 	   ]
 
 	void apply(Project target) {
