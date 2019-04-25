@@ -48,7 +48,7 @@ class AsciiDoc extends AsciidoctorTask {
 		options doctype: 'article',
 		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]
 
-		attributes	'source-highlighter' : 'coderay',
+		attributes	'source-highlighter' : 'rouge',
 		'icons': 'font',
 		'setanchors':'true',
 		'tabsize': '4',
