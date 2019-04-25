@@ -1,6 +1,8 @@
 == Vogella AsciiDoctor Plugin
 
-This Gradle Plugin makes use of the http://asciidoctor.org/docs/asciidoctor-gradle-plugin/ in order to create new tutorials on vogella.com
+This Gradle Plugin makes use of the http://asciidoctor.org/docs/asciidoctor-gradle-plugin/ in order to create new tutorials on vogella.com.
+
+Plugin Portal: https://plugins.gradle.org/plugin/com.vogella.asciidoc
 
 === Get the Plugin
 
@@ -51,14 +53,12 @@ TIP: Single subprojects can be build when navigating into a subproject and for e
 NOTE: On Windows OS `./gradlew.bat` must be used +
 See http://www.vogella.com/tutorials/Gradle/article.html[Gradle tutorial]
 
-=== How to deploy this plugin to Bintray
-
-This plugin makes use of https://github.com/bintray/gradle-bintray-plugin.
+=== How to deploy this plugin to the Gradle Plugin Portal
 
 [source, terminal]
 ----
-// upload this plugin to bintray
-./gradlew bintrayUpload
+// upload this plugin to the gradle plugin portal
+./gradlew clean publishPlugins
 ----
 
 Execute this command in: 
@@ -66,20 +66,18 @@ jnerlich@sol:~/git/com.vogella.gradle.plugins/com.vogella.gradle.plugin.asciidoc
 
 To publish this plugin you need a Bintray account that is part of the Bintray organization https://bintray.com/vogellacompany[vogellacompany].
 
-For the upload a _bintrayUser_ and a _bintrayApiKey_ property has to be set in the _gradle.properties_ file.
+For the upload the _gradle.publish.key_ and _gradle.publish.secret_ property has to be set in the _gradle.properties_ file.
+The account belonging to the key has to have write access to the plugin.
 
 The _gradle.properties_ file can usually be found in the user home's _.gradle_ folder and could look similar to this:
 
 [source, properties]
 ----
-org.gradle.daemon=true
-userName=Simon Scholz
-
-bintrayUser=simon-scholz
-bintrayApiKey=7aab22ddfa6f78b71651ef503f2a8356bb268526
+gradle.publish.key=<KEY>
+gradle.publish.secret=<SECRET>
 ----
 
-As an alternative a _BINTRAY_USER_ and a _BINTRAY_API_KEY_ can be set as system property.
+As an alternative a _gradle.publish.key_ and a _gradle.publish.secret_ can be set as system property.
 
 === How to locally test changes in the plug-in
 
