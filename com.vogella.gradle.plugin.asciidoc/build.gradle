@@ -1,6 +1,5 @@
 plugins {
 	id 'java-gradle-plugin'
-	id "com.jfrog.bintray" version "1.8.4"
 	id "com.github.jruby-gradle.base" version "1.6.0"
 	id "com.github.jruby-gradle.jar" version "1.6.0"
 	id 'org.asciidoctor.jvm.convert' version '2.1.0'
@@ -13,7 +12,6 @@ plugins {
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
@@ -63,22 +61,5 @@ publishing {
     		artifactId 'com.vogella.gradle.plugin.asciidoc'
     		version "${version}"
 		}
-	}
-}
-
-bintray {
-	// add these two properties to the 'gradle.properties' file in the ${HOME}/.gradle folder
-	user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-	key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-	publications = ['GradlePlugins']
-	publish = true
-	pkg {
-		repo = 'Gradle-AsciiDoctor-Plugin'
-		name = 'plugin'
-		userOrg = 'vogellacompany'
-		licenses = ['EPL-1.0']
-		vcsUrl = 'https://github.com/vogellacompany/com.vogella.gradle.plugins.git'
-		githubRepo = 'https://github.com/vogellacompany/com.vogella.gradle.plugins'
-		publicDownloadNumbers = true
 	}
 }
