@@ -10,17 +10,6 @@ import org.gradle.api.logging.StandardOutputListener
 
 @CacheableTask
 class AsciiDoc extends AsciidoctorTask {
-	
-    static final ERROR_MESSAGES = [
-								   'include file not found',
-		                           'only book doctypes can contain level 0 sections',
-		                           'section title out of sequence',
-		                           'dropping line containing reference to missing attribute',
-		                           'could not embed image',
-								   'image to embed not found or not readable',
-								   'could not resolve xref',
-								   'already in use'
-		                          ]
 
 	public AsciiDoc(WorkerExecutor we) {
 		super(we)
@@ -57,16 +46,6 @@ class AsciiDoc extends AsciidoctorTask {
 		'docinfo1':'true',
 		'pdf-stylesdir':'../themes',
 		'pdf-style':'basic'
-		
-		def capturedOutput = []
-		def listener = { capturedOutput << it } as StandardOutputListener
-		logging.addStandardOutputListener(listener)
-		logging.addStandardErrorListener(listener)
-		doLast {
-			logging.removeStandardOutputListener(listener)
-			logging.removeStandardErrorListener(listener)
-			checkForRelevantWarnings(capturedOutput)
-		}
 	}
 
 	@TaskAction
@@ -86,17 +65,6 @@ class AsciiDoc extends AsciidoctorTask {
 		}
 		)
 	}
-	
-	def checkForRelevantWarnings(outputEvents) {
-		outputEvents.each { e ->
-			if (matchesRelevantWarning(e.toString())) {
-				throw new GradleException("You have some asciidoctor warnings, please fix them!");
-			}
-		}
-	}
-	
-	def matchesRelevantWarning(e) {
-		ERROR_MESSAGES.any { e =~ it }
-	}
+
 }
 

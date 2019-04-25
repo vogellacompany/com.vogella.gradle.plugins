@@ -8,6 +8,16 @@ import org.asciidoctor.gradle.jvm.AsciidoctorJExtension
 class AsciiDoctorPlugin implements Plugin<Project> {
 	
 	public static final LOG_PREFIX = 'Vogella Asciidoctor: '
+	static final ERROR_MESSAGES = [
+		'include file not found',
+		'only book doctypes can contain level 0 sections',
+		'section title out of sequence',
+		'dropping line containing reference to missing attribute',
+		'could not embed image',
+		'image to embed not found or not readable',
+		'could not resolve xref',
+		'already in use'
+	   ]
 
 	void apply(Project target) {
 		target.with { 
@@ -24,6 +34,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 
 			asciidoctorj {
 				version = '2.0.0'
+				setFatalWarnings(ERROR_MESSAGES)
 			}
 
 			task('copyExtensions', type: CopyExtensions)
