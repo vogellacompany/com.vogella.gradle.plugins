@@ -7,7 +7,7 @@ import org.gradle.workers.WorkerExecutor
 
 import groovy.lang.MetaClass
 
-class CreatePdfOutput extends AsciiDoc {
+class CreatePdfOutput extends AsciiDocPdf {
 
 	@Inject
 	public CreatePdfOutput(WorkerExecutor we) {

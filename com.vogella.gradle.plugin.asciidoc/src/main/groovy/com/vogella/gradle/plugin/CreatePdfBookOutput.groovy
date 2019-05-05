@@ -10,7 +10,7 @@ import java.nio.file.Path
 
 import javax.inject.Inject
 
-class CreatePdfBookOutput extends AsciiDoc {
+class CreatePdfBookOutput extends AsciiDocPdf {
 
 	public static final FOOTNOTETEXT = 'footnotetext'
 
