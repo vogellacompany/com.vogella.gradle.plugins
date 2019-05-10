@@ -38,6 +38,7 @@ class AsciiDoc extends AsciidoctorTask {
 		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]
 
 		attributes	'source-highlighter' : 'rouge',
+		'rouge-style': 'thankful_eyes',
 		'icons': 'font',
 		'setanchors':'true',
 		'tabsize': '4',
