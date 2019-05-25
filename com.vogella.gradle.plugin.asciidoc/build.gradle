@@ -2,9 +2,9 @@ plugins {
 	id 'java-gradle-plugin'
 	id "com.github.jruby-gradle.base" version "1.6.0"
 	id "com.github.jruby-gradle.jar" version "1.6.0"
-	id 'org.asciidoctor.jvm.convert' version '2.1.0'
-	id 'org.asciidoctor.jvm.pdf' version '2.1.0'
-	id 'org.asciidoctor.jvm.epub' version '2.1.0'
+	id 'org.asciidoctor.jvm.convert' version '2.2.0'
+	id 'org.asciidoctor.jvm.pdf' version '2.2.0'
+	id 'org.asciidoctor.jvm.epub' version '2.2.0'
     id 'com.github.ben-manes.versions' version '0.20.0'
 	id 'com.gradle.plugin-publish' version '0.10.1'
 }
@@ -27,9 +27,9 @@ repositories {
 
 dependencies {
 	compile localGroovy()
-	compile 'org.asciidoctor:asciidoctor-gradle-base:2.1.0'
-	compile 'org.asciidoctor:asciidoctor-gradle-jvm-epub:2.1.0'
-	compile 'org.asciidoctor:asciidoctor-gradle-jvm:2.1.0'
+	compile 'org.asciidoctor:asciidoctor-gradle-base:2.2.0'
+	compile 'org.asciidoctor:asciidoctor-gradle-jvm-epub:2.2.0'
+	compile 'org.asciidoctor:asciidoctor-gradle-jvm:2.2.0'
 }
 
 asciidoctorj {
