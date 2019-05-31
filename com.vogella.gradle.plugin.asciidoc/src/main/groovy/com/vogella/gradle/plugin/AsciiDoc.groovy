@@ -55,7 +55,7 @@ class AsciiDoc extends AsciidoctorTask {
 	}
 	
 	def matchesFilePattern(fileName) {
-		fileName.startsWith("001_article") || fileName.startsWith('001_book') || fileName.contains('exercise_') || fileName.startsWith('001_script')
+		fileName.startsWith("001_article") || fileName.startsWith('001_book')  || fileName.startsWith('001_script')
 	}
 
 	def renameFiles(def buildDir) {
