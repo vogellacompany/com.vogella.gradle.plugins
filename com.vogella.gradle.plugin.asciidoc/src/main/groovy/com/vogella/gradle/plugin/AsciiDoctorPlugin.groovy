@@ -50,6 +50,8 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 				v.task('createEpub', type: CreateEpubOutput)
 				v.task('createDocbook', type: CreateDocbookOutput)
 				v.task('createHtml', type: CreateHtmlOutput)
+				v.task('createExerciseTestHtml', type: CreateHtmlExerciseTestOutput)
+				v.task('createExerciseHtml', type: CreateHtmlExerciseOutput)
 				v.task('publishHtml', type: PublishHtmlOutput)
 			}
 		}

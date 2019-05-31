@@ -34,8 +34,7 @@ class AsciiDoc extends AsciidoctorTask {
 			setSeparateOutputDirs(true)
 		}
 
-		options doctype: 'article',
-		template_dirs : [ new File(TaskUtil.topProject(project).projectDir, '_templates').absolutePath ]
+		options doctype: 'article'
 
 		attributes	'source-highlighter' : 'rouge',
 		'rouge-style': 'thankful_eyes',
