@@ -63,8 +63,7 @@ class AsciiDoc extends AsciidoctorTask {
 			if(it.name.startsWith('001_')){
 				it.renameTo(new File(it.parent, it.name.substring(4, it.name.length())))
 			}
-		}
-		)
+		})
 	}
 
 }
