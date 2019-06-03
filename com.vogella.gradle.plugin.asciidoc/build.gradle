@@ -45,7 +45,7 @@ pluginBundle {
 gradlePlugin {
 	plugins {
 		vogellaPlugin {
-			id = 'com.vogella.asciidoc'
+			id = 'com.vogella.asciidoctor'
 			displayName = 'AsciiDoctor plugin for vogella.com'
 			description = 'Plugin to generate the tutorials on www.vogella.com'
 			implementationClass = 'com.vogella.gradle.plugin.AsciiDoctorPlugin'
@@ -57,8 +57,8 @@ publishing {
 	publications {
 		GradlePlugins(MavenPublication) {
 			from components.java
-			groupId 'com.vogella.gradle'
-    		artifactId 'com.vogella.gradle.plugin.asciidoc'
+			groupId 'com.vogella.gradle.plugins'
+    		artifactId 'com.vogella.gradle.plugin.asciidoctor'
     		version "${version}"
 		}
 	}
