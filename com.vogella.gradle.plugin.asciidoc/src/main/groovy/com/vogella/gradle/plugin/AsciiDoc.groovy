@@ -28,6 +28,7 @@ class AsciiDoc extends AsciidoctorTask {
 		def sourceFiles = new File("${sourceDir}").listFiles()
 									   .collect { it.name }
 									   .findAll { matchesFilePattern(it)}
+		// if sourceFiles is empty, all possible adoc files become source files / no filtering happens
 		sources { setIncludes sourceFiles }
 		outputDir project.buildDir
 		outputOptions {
