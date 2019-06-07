@@ -4,7 +4,9 @@ import org.asciidoctor.gradle.base.SafeMode
 import org.asciidoctor.gradle.jvm.AsciidoctorTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.StopActionException
 import org.gradle.api.tasks.TaskAction
+import org.gradle.api.tasks.util.PatternSet
 import org.gradle.workers.WorkerExecutor
 import org.gradle.api.logging.StandardOutputListener
 
@@ -24,12 +26,17 @@ class AsciiDoc extends AsciidoctorTask {
 			safeMode SafeMode.UNSAFE
 		}
 
-		sourceDir = project.file("${project.projectDir}")
-		def sourceFiles = new File("${sourceDir}").listFiles()
-									   .collect { it.name }
-									   .findAll { matchesFilePattern(it)}
-		// if sourceFiles is empty, all possible adoc files become source files / no filtering happens
-		sources { setIncludes sourceFiles }
+		def srcDir = project.projectDir
+		def sourceFiles = srcDir.listFiles()
+					    .collect { it.name }
+						.findAll { matchesFilePattern(it)}
+
+//		 if sourceFiles is empty, all possible adoc files become source files / no filtering happens
+//       => only set sourceDir when we find matching sourceFiles
+		if (!sourceFiles.isEmpty()) {
+		    sourceDir = srcDir
+	        sources { setIncludes sourceFiles }
+		}
 		outputDir project.buildDir
 		outputOptions {
 			setSeparateOutputDirs(true)
