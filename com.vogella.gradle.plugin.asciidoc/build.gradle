@@ -15,8 +15,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
-group 'com.vogella.gradle'
-version = '0.18.2'
+group 'com.vogella.gradle.plugins'
+version = '0.18.3'
 
 repositories {
 	gradlePluginPortal()
