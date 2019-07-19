@@ -55,22 +55,9 @@ class AsciiDoc extends AsciidoctorTask {
 		'pdf-stylesdir':'../themes',
 		'pdf-style':'basic'
 	}
-
-	@TaskAction
-	def renameFiles() {
-		renameFiles(new File("${project.buildDir}"))
-	}
 	
 	def matchesFilePattern(fileName) {
 		fileName.startsWith("001_article") || fileName.startsWith('001_book')  || fileName.startsWith('001_script')
-	}
-
-	def renameFiles(def buildDir) {
-		buildDir.eachFileRecurse( {
-			if(it.name.startsWith('001_')){
-				it.renameTo(new File(it.parent, it.name.substring(4, it.name.length())))
-			}
-		})
 	}
 
 }

@@ -41,17 +41,18 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 
 			task('copyExtensions', type: CopyExtensions)
 			task('createTemplate', type: Template)
+			task('renameFiles', type: RenameFiles)
 
 			// only apply asciidoctor tasks to child projects
 			childProjects.each { k, v ->
-				v.task('createAll', type: CreateAllOutputFormats)
-				v.task('createPdf', type: CreatePdfOutput)
-				v.task('createPdfBook', type: CreatePdfBookOutput, dependsOn: 'copyExtensions')
-				v.task('createEpub', type: CreateEpubOutput)
-				v.task('createDocbook', type: CreateDocbookOutput)
-				v.task('createHtml', type: CreateHtmlOutput)
-				v.task('createExerciseTestHtml', type: CreateHtmlExerciseTestOutput)
-				v.task('createExerciseHtml', type: CreateHtmlExerciseOutput)
+				v.task('createAll', type: CreateAllOutputFormats).finalizedBy('renameFiles')
+				v.task('createPdf', type: CreatePdfOutput).finalizedBy('renameFiles')
+				v.task('createPdfBook', type: CreatePdfBookOutput, dependsOn: 'copyExtensions').finalizedBy('renameFiles')
+				v.task('createEpub', type: CreateEpubOutput).finalizedBy('renameFiles')
+				v.task('createDocbook', type: CreateDocbookOutput).finalizedBy('renameFiles')
+				v.task('createHtml', type: CreateHtmlOutput).finalizedBy('renameFiles')
+				v.task('createExerciseTestHtml', type: CreateHtmlExerciseTestOutput).finalizedBy('renameFiles')
+				v.task('createExerciseHtml', type: CreateHtmlExerciseOutput).finalizedBy('renameFiles')
 				v.task('publishHtml', type: PublishHtmlOutput)
 			}
 		}
