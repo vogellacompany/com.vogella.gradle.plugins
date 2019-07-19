@@ -16,7 +16,7 @@ apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'eclipse'
 
 group 'com.vogella.gradle.plugins'
-version = '0.18.3'
+version = '0.18.4'
 
 repositories {
 	gradlePluginPortal()
