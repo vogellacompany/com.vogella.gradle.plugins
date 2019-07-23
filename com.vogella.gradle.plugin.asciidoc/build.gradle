@@ -1,7 +1,7 @@
 plugins {
 	id 'java-gradle-plugin'
-	id "com.github.jruby-gradle.base" version "1.6.0"
-	id "com.github.jruby-gradle.jar" version "1.6.0"
+	id "com.github.jruby-gradle.base" version "1.7.0"
+	id "com.github.jruby-gradle.jar" version "1.7.0"
 	id 'org.asciidoctor.jvm.convert' version '2.3.0'
 	id 'org.asciidoctor.jvm.pdf' version '2.3.0'
 	id 'org.asciidoctor.jvm.epub' version '2.3.0'
