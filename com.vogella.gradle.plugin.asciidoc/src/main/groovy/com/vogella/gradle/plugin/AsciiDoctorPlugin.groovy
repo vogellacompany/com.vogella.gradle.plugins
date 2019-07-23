@@ -35,7 +35,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 			}
 
 			asciidoctorj {
-				version = '2.0.0'
+				version = '2.1.0'
 				setFatalWarnings(ERROR_MESSAGES)
 			}
 
