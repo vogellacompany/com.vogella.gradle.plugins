@@ -26,8 +26,8 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 			apply plugin : 'org.asciidoctor.jvm.base'
 			apply plugin : 'org.asciidoctor.jvm.pdf'
 			apply plugin : 'org.asciidoctor.jvm.epub'
-			extensions.getByType(AsciidoctorJExtension).getModules().getEpub().setVersion(AsciidoctorJExtension.DEFAULT_EPUB_VERSION)
-			extensions.getByType(AsciidoctorJExtension).getModules().getPdf().setVersion(AsciidoctorJExtension.DEFAULT_PDF_VERSION)
+//			extensions.getByType(AsciidoctorJExtension).getModules().getEpub().setVersion(AsciidoctorJExtension.DEFAULT_EPUB_VERSION)
+//			extensions.getByType(AsciidoctorJExtension).getModules().getPdf().setVersion(AsciidoctorJExtension.DEFAULT_PDF_VERSION)
 			
 			repositories {
 				jcenter()
