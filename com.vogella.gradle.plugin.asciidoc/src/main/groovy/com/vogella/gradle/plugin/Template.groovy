@@ -16,20 +16,19 @@ class Template extends DefaultTask {
 		description = 'Creates a template for vogella tutorials'
 		group = 'Documentation'
 	}
-	
+
 	@TaskAction
 	def createTemplate() {
-		if(this.projectName != null) {
+		if (this.projectName != null) {
 			new File("${projectName}/img").mkdirs()
 			new File("${projectName}/res").mkdirs()
-			
+
 			createArticleFile()
 			createResourcesFile()
 			createOverviewFile()
-			
+
 			addIncludeToSettings()
-		}
-		else if(project.projectDir.list().length <= 0) {
+		} else if(project.projectDir.list().length <= 0) {
 			this.projectName = project.projectDir.name;
 			new File('img').mkdir()
 			new File('res').mkdir()
@@ -37,11 +36,11 @@ class Template extends DefaultTask {
 			createArticleFile()
 			createResourcesFile()
 			createOverviewFile()
-		}else {
+		} else {
 			throw new GradleException("The ${project.projectDir} directory, which should be initialized, must be empty")
 		}
 	}
-	
+
 	@Option(option = 'name', description = 'Specify a name for the new project')
 	void setFile(final String projectName) {
 		this.projectName = projectName;
@@ -87,7 +86,7 @@ include::../copyright.adoc[]
 
 """
 	}
-	
+
 	def addIncludeToSettings() {
 		def settingsFile = project.file('settings.gradle')
 		if(settingsFile) {
