@@ -51,7 +51,7 @@ class Template extends DefaultTask {
 		def now = new java.text.SimpleDateFormat("dd.MM.yyyy").format(date)
 		def year = new java.text.SimpleDateFormat("yyyy").format(date)
 		def userName = project.hasProperty('userName') ? String.valueOf(project.property('userName')) : ''
-		project.file("${projectName}/001_article.adoc") << """= ${projectName} - Tutorial
+		project.file("001_article.adoc") << """= ${projectName} - Tutorial
 :toc:
 :linkcss:
 :sectnums:
@@ -77,12 +77,12 @@ include::../copyright.adoc[]
 """
 	}
 	def createResourcesFile() {
-		project.file("${projectName}/008_resourceslocal.adoc") << """== ${projectName} resources
+		project.file("008_resourceslocal.adoc") << """== ${projectName} resources
 
 """
 	}
 	def createOverviewFile() {
-		project.file("${projectName}/010_overview.adoc") << """== ${projectName}
+		project.file("010_overview.adoc") << """== ${projectName}
 
 """
 	}
