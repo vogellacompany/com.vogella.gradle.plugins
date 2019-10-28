@@ -51,7 +51,7 @@ class AsciiDoc extends AsciidoctorTask {
 		'tabsize': '4',
 		'idprefix':'',
 		'idseparator':'-',
-		'docinfo1':'true',
+		'docinfo':'shared',
 		'pdf-stylesdir':'../themes',
 		'pdf-style':'basic'
 	}
