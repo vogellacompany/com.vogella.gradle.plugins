@@ -51,6 +51,7 @@ class AsciiDoctorPlugin implements Plugin<Project> {
 				v.task('createEpub', type: CreateEpubOutput).finalizedBy('renameFiles')
 				v.task('createDocbook', type: CreateDocbookOutput).finalizedBy('renameFiles')
 				v.task('createHtml', type: CreateHtmlOutput).finalizedBy('renameFiles')
+				v.task('createHtmlWithTemplate', type: CreateHtmlWithTemplateOutput).finalizedBy('renameFiles')
 				v.task('createExerciseTestHtml', type: CreateHtmlExerciseTestOutput).finalizedBy('renameFiles')
 				v.task('createExerciseHtml', type: CreateHtmlExerciseOutput).finalizedBy('renameFiles')
 				v.task('publishHtml', type: PublishHtmlOutput)
