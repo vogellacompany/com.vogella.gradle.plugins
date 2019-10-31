@@ -9,7 +9,7 @@ class PublishHtmlOutput extends Copy {
 		description = 'Publishes Html 5 outputs into these rootfolder'
 		group = 'Documentation'
 
-		dependsOn = ['createHtml']
+		dependsOn = ['createHtmlWithTemplate']
 
 		from "${project.buildDir}/html5"
 		into "../build/${project.name}"
