@@ -13,9 +13,7 @@ class CreateHtmlOutput extends AsciiDoc {
 		super(we)
 		description = 'Creates Html 5 Documentation'
 		group = 'Documentation'
-		attributes	'sectlinks':'true',
-                'toc-title':''
-		
+		attributes	'sectlinks':'true'
 		
 		outputOptions {
 			backends = ['html5']
